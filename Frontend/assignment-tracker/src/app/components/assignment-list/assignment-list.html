@@ -1,0 +1,16 @@
+<div>
+  <h2>Assignments</h2>
+
+  <div *ngFor="let a of assignments" class="card">
+    <h3>{{ a.title }}</h3>
+    <p>Subject: {{ a.subject }}</p>
+    <p>Deadline: {{ a.deadline | date }}</p>
+
+    <p [ngClass]="{'completed': a.isCompleted}">
+      Status: {{ a.isCompleted ? 'Completed' : 'Pending' }}
+    </p>
+
+    <button (click)="toggleCompletion(a.id)">Mark Complete</button>
+    <button (click)="deleteAssignment(a.id)">Delete</button>
+  </div>
+</div>
